@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { useState, useEffect } from "react";
+import Data1 from './Data/Data1';
+import Data2 from './Data/Data2';
+import Data3 from './Data/Data3';
+ 
 function App() {
+  const [show,setShow]=useState(1);
+  const btn1=()=>{
+    setShow(1);
+  }
+  const btn2=()=>{
+    setShow(2);
+  }
+  const btn3=()=>{
+    setShow(3);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={btn1}>Data1</button>
+      <button onClick={btn2}>Data2</button>
+      <button onClick={btn3}>Data3</button>
+      {show==1?<Data1/>:null}
+      {show==2?<Data2/>:null}
+      {show==3?<Data3/>:null}
+      {console.log(show)}
     </div>
   );
 }
